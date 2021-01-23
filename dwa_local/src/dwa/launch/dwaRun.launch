@@ -1,0 +1,67 @@
+<launch>
+  <arg name="topic1"    default = "/front/scan"/>
+
+  <arg name="topic2" default = "/odometry/filtered" />
+
+  <arg name="topic3" default = "/cmd_vel" />
+
+  <arg name="topic4" default = "/move_base_simple/goal" />
+  
+  <node pkg = "dwa" type = "dwamain.py" name = "dwaplanner"/>
+    
+    <!-- vehicle and 2D laser param -->
+    <!--激光传感器的最大测量角度 -->
+    <param name="sensorAngleMax" type="double" value=" 2.35619" /> 
+    <!--激光传感器的最小测量角度 -->
+    <param name="sensorAngleMin" type="double" value=" -2.35619" />
+    <!--激光传感器的测量角度分辨率 -->
+    <param name="sensorAngleReso" type="double" value="0.01745319" />
+    <!--提取的有效数据开始角度 -->
+    <param name="followAngleS" type="double" value="-2.35619" />
+    <!--提取的有效数据结束角度 -->
+    <param name="followAngleE" type="double" value=" 2.35619" />
+    <!--移动机器人最大行驶加速度 -->
+    <param name="maxAcc" type="double" value="0.2" />
+    <!--当传感器探测距离小于此值，才会纳入计算中 -->
+    <param name="adjacentRange" type="double" value="4.0" />
+    <!--移动机器人最大行驶速度 -->
+    <param name="maxLinearSpeed" type="double" value="1.0" />
+    <!--移动机器人最小行驶速度 -->
+    <param name="minLinearSpeed" type="double" value="0.0" />
+    <!--移动机器人最大行驶角速度 -->
+    <param name="maxAngularSpeed" type="double" value="0.69813"/>
+    <!--移动机器人最大角角速度 -->
+    <param name="maxAngularAcc" type="double" value="0.69813"/>
+
+    <param name="dt" type="double" value="0.1"/>
+
+    <!--dwa param -->
+    <!--dwa线速度分辨率-->
+    <param name="speedReso" type="double" value="0.01"/>
+    <!--dwa角速度分辨率-->
+    <param name="angularReso" type="double" value="0.001745319"/>
+    <!--预测时间-->
+    <param name="predictTime" type="double" value="3.0"/>
+    <!--朝向权重-->
+    <param name="headWeight" type="double" value="0.5"/>
+    <!--速度权重-->
+    <param name="speedWeight" type="double" value="1.0"/>
+    <!--避障权重-->
+    <param name="odistWeight" type="double" value="2.0"/>
+    <!--目标权重-->
+    <param name="gdistWeight" type="double" value="0.0" />
+    <!--到达距离-->
+    <param name="arrivedist" type="double" value="0.5" />
+
+    <!-- topic-->
+    <param name="scan_topic"    value="$(arg topic1)"/>
+
+    <param name="odom_topic" value="$(arg topic2)"/>
+
+    <param name="cmd_topic" value="$(arg topic3)"/>
+
+    <param name="goal_topic" value="$(arg topic4)"/>
+
+
+</launch>
+

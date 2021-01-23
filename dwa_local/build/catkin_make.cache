@@ -1,0 +1,2 @@
+dwa
+-DCATKIN_DEVEL_PREFIX=/home/czp/dwa_local/devel -DCMAKE_INSTALL_PREFIX=/home/czp/dwa_local/install -G Unix Makefiles

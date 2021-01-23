@@ -1,0 +1,8 @@
+prefix=/home/czp/dwa_local/install
+
+Name: dwa
+Description: Description of dwa
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
